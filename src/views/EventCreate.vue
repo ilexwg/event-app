@@ -55,7 +55,7 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker';
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'EventCreate',
@@ -77,13 +77,12 @@ export default {
   },
 
   computed: {
-    ...mapState(['user', 'categories', 'todos']),
-    ...mapGetters(['doneTodos', 'activeTodosCount', 'getEventById']),
+    ...mapState(['categories', 'todos']),
   },
 
   methods: {
     createFreshEvent() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
       return {
         id,
@@ -99,7 +98,7 @@ export default {
     },
     createEvent() {
       this.$store
-        .dispatch('createEvent', this.event)
+        .dispatch('event/createEvent', this.event)
         .then(() => {
           this.$router.push({
             name: 'event-show',

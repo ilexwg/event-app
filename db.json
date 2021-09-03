@@ -231,6 +231,34 @@
       "date": "",
       "time": "5:00",
       "attendees": []
+    },
+    {
+      "id": 2043041,
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "aaaaa",
+      "description": "bbbbb",
+      "location": "Beijing",
+      "date": "2021-09-09T09:12:00.000Z",
+      "time": "10:00",
+      "attendees": []
+    },
+    {
+      "id": 9303307,
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Visit a school",
+      "description": "To go to a school for visiting",
+      "location": "Beijing",
+      "date": "2021-09-16T09:20:00.000Z",
+      "time": "11:00",
+      "attendees": []
     }
   ]
 }
