@@ -71,6 +71,34 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 7442067,
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Go to forest",
+      "description": "Let's go to forest",
+      "location": "Beijing",
+      "date": "2021-09-15T05:11:00.000Z",
+      "time": "17:00",
+      "attendees": []
+    },
+    {
+      "id": 6341978,
+      "category": "housing",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "aaaa",
+      "description": "bbbbbb",
+      "location": "Shanghai",
+      "date": "2021-09-09T05:23:00.000Z",
+      "time": "10:00",
+      "attendees": []
     }
   ]
 }
