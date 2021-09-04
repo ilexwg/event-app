@@ -259,6 +259,20 @@
       "date": "2021-09-16T09:20:00.000Z",
       "time": "11:00",
       "attendees": []
+    },
+    {
+      "id": 6407827,
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "aaaa",
+      "description": "bbb",
+      "location": "dddddd",
+      "date": "2021-09-08T16:31:00.000Z",
+      "time": "3:00",
+      "attendees": []
     }
   ]
 }

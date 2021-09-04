@@ -32,12 +32,26 @@ export const mutations = {
 };
 
 export const actions = {
-  createEvent({ commit }, event) {
-    return EventService.postEvent(event).then(() => {
-      commit('ADD_EVENT', event);
-    });
+  createEvent({ commit, dispatch }, event) {
+    return EventService.postEvent(event)
+      .then(() => {
+        commit('ADD_EVENT', event);
+        const notification = {
+          type: 'success',
+          message: 'Your event has been created!',
+        };
+        dispatch('notification/add', notification, { root: true });
+      })
+      .catch(err => {
+        const notification = {
+          type: 'error',
+          message: 'There was a problem creating your event: ' + err.message,
+        };
+        dispatch('notification/add', notification, { root: true });
+        throw err;
+      });
   },
-  fetchEvent({ commit, getters }, id) {
+  fetchEvent({ commit, getters, dispatch }, id) {
     const event = getters.getEventById(id);
     if (event) {
       commit('SET_EVENT', event);
@@ -48,18 +62,26 @@ export const actions = {
           commit('SET_EVENT', res.data);
         })
         .catch(err => {
-          console.log('There was an error: ', err.response);
+          const notification = {
+            type: 'error',
+            message: 'There was an error fetching an event: ' + err.message,
+          };
+          dispatch('notification/add', notification, { root: true });
         });
     }
   },
-  fetchEvents({ commit }, { perPage, page }) {
+  fetchEvents({ commit, dispatch }, { perPage, page }) {
     return EventService.getEvents(perPage, page)
       .then(res => {
         commit('SET_EVENTS_TOTAL', parseInt(res.headers['x-total-count']));
         commit('SET_EVENTS', res.data);
       })
       .catch(err => {
-        console.log('There was an error: ', err.response);
+        const notification = {
+          type: 'error',
+          message: 'There was a problem fetching events: ' + err.message,
+        };
+        dispatch('notification/add', notification, { root: true });
       });
   },
 };
