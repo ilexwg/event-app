@@ -2,42 +2,37 @@
   <div class="">
     <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option v-for="cat in categories" :key="cat">{{ cat }}</option>
-      </select>
+      <BaseSelect
+        v-model="event.category"
+        label="Select a category"
+        :options="categories"
+      />
 
       <h3>Names & describe your event</h3>
-      <div class="field">
-        <BaseInput
-          v-model="event.title"
-          type="text"
-          label="Title"
-          placeholder="Add an event title"
-          class="field"
-        />
-      </div>
+      <BaseInput
+        v-model="event.title"
+        type="text"
+        label="Title"
+        placeholder="Add an event title"
+        class="field"
+      />
 
-      <div class="field">
-        <BaseInput
-          v-model="event.description"
-          type="text"
-          label="Description"
-          placeholder="Add a description"
-          class="field"
-        />
-      </div>
+      <BaseInput
+        v-model="event.description"
+        type="text"
+        label="Description"
+        placeholder="Add a description"
+        class="field"
+      />
 
       <h3>Where is your event?</h3>
-      <div class="field">
-        <BaseInput
-          v-model="event.location"
-          type="text"
-          label="Location"
-          placeholder="Add a Location"
-          class="field"
-        />
-      </div>
+      <BaseInput
+        v-model="event.location"
+        type="text"
+        label="Location"
+        placeholder="Add a Location"
+        class="field"
+      />
 
       <h3>When is your event?</h3>
       <div class="field">
@@ -45,12 +40,12 @@
         <Datepicker v-model="event.date" placeholder="Select a date" />
       </div>
 
-      <div class="field">
-        <label>Select a time</label>
-        <select v-model="event.time">
-          <option v-for="time in times" :key="time">{{ time }}</option>
-        </select>
-      </div>
+      <BaseSelect
+        v-model="event.time"
+        :options="times"
+        label="Select a time"
+        class="field"
+      />
       <input type="submit" class="button -fill-gradient" value="Submit" />
     </form>
   </div>
