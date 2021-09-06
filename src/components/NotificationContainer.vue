@@ -27,5 +27,7 @@ export default {
 .notification-contrainer {
   position: fixed;
   bottom: 0;
+  right: 0;
+  padding-right: 40px;
 }
 </style>
