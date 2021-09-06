@@ -6,6 +6,7 @@ export const state = {
   event: {},
   events: [],
   eventsTotal: 0,
+  perPage: 3,
 };
 
 export const getters = {
@@ -60,6 +61,7 @@ export const actions = {
       return EventService.getEvent(id)
         .then(res => {
           commit('SET_EVENT', res.data);
+          return res.data;
         })
         .catch(err => {
           const notification = {
@@ -70,11 +72,12 @@ export const actions = {
         });
     }
   },
-  fetchEvents({ commit, dispatch }, { perPage, page }) {
-    return EventService.getEvents(perPage, page)
+  fetchEvents({ state, commit, dispatch }, { page }) {
+    return EventService.getEvents(state.perPage, page)
       .then(res => {
         commit('SET_EVENTS_TOTAL', parseInt(res.headers['x-total-count']));
         commit('SET_EVENTS', res.data);
+        return res.data;
       })
       .catch(err => {
         const notification = {
