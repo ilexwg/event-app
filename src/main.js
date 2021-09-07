@@ -6,6 +6,7 @@ import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
 import 'nprogress/nprogress.css';
 import Vuelidate from 'vuelidate';
+import DateFilter from '@/filters/date.js';
 
 Vue.use(Vuelidate);
 
@@ -26,6 +27,8 @@ requireComponent.keys().forEach(fileName => {
 });
 
 Vue.config.productionTip = false;
+
+Vue.filter('date', DateFilter);
 
 new Vue({
   router,
